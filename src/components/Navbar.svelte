@@ -2,6 +2,7 @@
 	import { fade, fly, slide } from 'svelte/transition';
 	import Navlinks from './Navlinks.svelte';
 	let show = false;
+	import Logo from '$lib/logo.png';
 </script>
 
 <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -54,17 +55,24 @@
 			</button>
 		</div>
 		<div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-star">
+			<!-- <div class="flex flex-shrink-0 items-center">
+				<img class="h-8 w-auto" src={Logo} alt="Your Company" />
+			</div> -->
 			<div class="hidden sm:ml-6 sm:block">
 				<div class="flex space-x-4">
 					<!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-					<Navlinks />
+					<Navlinks
+						on:close={() => {
+							show = false;
+						}}
+					/>
 				</div>
 			</div>
 		</div>
 		<div
 			class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-"
 		>
-			<button class="btn btn-primary"> Get the app </button>
+			<button class="btn btn-primary lg:btn-wide"> Get the app </button>
 
 			<!-- Profile dropdown -->
 		</div>
@@ -74,9 +82,13 @@
 <!-- Mobile menu, show/hide based on menu state. -->
 {#if show}
 	<div class="sm:hidden" transition:slide={{ duration: 500 }} id="mobile-menu ">
-		<div class="space-y-1 px-2 pb-3 pt-2">
+		<div class="flex flex-col">
 			<!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-			<Navlinks />
+			<Navlinks
+				on:close={() => {
+					show = false;
+				}}
+			/>
 		</div>
 	</div>
 {/if}

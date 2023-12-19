@@ -14,8 +14,8 @@
 </script>
 
 <a
-	class:btn-neutral={url === '/team'}
-	class:btn-ghost={url !== '/team'}
+	class:btn-neutral={url?.includes('/team') ?? false}
+	class:btn-ghost={!url?.includes('/team') ?? true}
 	href="/team"
 	class="btn"
 	on:click={closeSidebar}
@@ -24,16 +24,16 @@
 
 <a
 	on:click={closeSidebar}
-	class:btn-neutral={url === '/support'}
-	class:btn-ghost={url !== '/support'}
+	class:btn-neutral={url?.includes('/support') ?? false}
+	class:btn-ghost={!url?.includes('/support') ?? true}
 	href="/support"
 	class="btn"
 	aria-current="page">Support</a
 >
 <a
 	on:click={closeSidebar}
-	class:btn-neutral={url === '/news'}
-	class:btn-ghost={url !== '/news'}
+	class:btn-neutral={url?.includes('/news') ?? false}
+	class:btn-ghost={!url?.includes('/news') ?? true}
 	href="/news"
 	class="btn"
 	aria-current="page">News</a

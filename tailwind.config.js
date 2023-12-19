@@ -2,7 +2,12 @@
 export default {
   content: ['./src/**/*.{html,js,svelte,ts}'],
   theme: {
-    extend: {},
+    extend: {
+      minHeight: {
+        'view': 'calc(100vh - 4rem)',
+       
+      },
+    },
   },
   daisyui: {
       themes: [

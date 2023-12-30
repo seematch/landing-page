@@ -10,7 +10,7 @@
 		<div class="flex items-center md:hidden">
 			<label class="btn btn-circle swap swap-rotate">
 				<!-- this hidden checkbox controls the state -->
-				<input type="checkbox" on:click={() => (show = !show)} />
+				<input type="checkbox" bind:checked={show} on:click={() => (show = !show)} />
 
 				<!-- hamburger icon -->
 				<svg
@@ -38,7 +38,7 @@
 		<a aria-current="page" href="/">
 			<div class="flex flex-shrink-0 gap-2 items-center">
 				<img class="h-8 w-auto" src={Logo} alt="Your Company" />
-				<span class="text-lg font-bold text-white">SeeMatch</span>
+				<span class="text-lg font-bold text-white">InstaMatch</span>
 			</div>
 		</a>
 		<div class="flex items-center justify-center md:items-stretch md:justify-star">
@@ -53,7 +53,6 @@
 				</div>
 			</div>
 		</div>
-
 		<a href="/download" class="btn btn-primary lg:btn-wide"> Try the beta </a>
 	</div>
 </div>
